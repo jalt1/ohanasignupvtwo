@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1>Slot #<%= @slot.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>User</dt>
+  <dd><%= @slot.user.full_name %></dd>
+
+  <dt>Course</dt>
+  <dd><%= @slot.course.category.name %></dd>
+
+  <dt>Paid</dt>
+  <dd>
+    <% if @slot.paid? == true %>
+    Yes
+    <% else %>
+    No
+    <% end %>
+  </dd>
+
+  <dt>Available</dt>
+  <dd><%= @slot.available? %></dd>
+
+</dl>

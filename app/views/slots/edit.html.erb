@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Editing Slot #<%= @slot.id %></h1>
+</div>
+
+<%= form_tag(slot_url(@slot), method: 'patch', class: 'form-horizontal') do %>
+  <div class="form-group">
+    <%= label_tag :user_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= number_field_tag :user_id, @slot.user_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= number_field_tag :course_id, @slot.course_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :paid, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :paid, 1, @slot.paid? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :available, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :available, 1, @slot.available? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <%= submit_tag "Update Slot", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

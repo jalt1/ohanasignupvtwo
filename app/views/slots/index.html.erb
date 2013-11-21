@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>Slots</h1>
+</div>
+
+<p><%= link_to 'Add a New Slot', new_slot_url, class: 'btn btn-primary' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Course</th>
+      <th>Paid</th>
+      <th>Available</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slots.each do |slot| %>
+      <tr>
+        <td><%= slot.user.full_name %></td>
+        <td><%= slot.course.category.name %></td>
+        <td><%= slot.paid? %></td>
+        <td><%= slot.available? %></td>
+        <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, slot_url(slot), class: 'btn btn-primary' %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_slot_url(slot), class: 'btn btn-warning' %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, slot_url(slot), method: 'delete', data: { confirm: "Do you really want to delete this slot?" }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Course #<%= @course.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>State date</dt>
+  <dd><%= @course.start_date %></dd>
+
+  <dt>End date</dt>
+  <dd><%= @course.end_date %></dd>
+
+  <dt>Category</dt>
+  <dd><%= @course.category.name %></dd>
+
+  <dt>Cost</dt>
+  <dd><%= @course.cost %></dd>
+
+  <dt>Place</dt>
+  <dd><%= @course.place %></dd>
+
+  <dt>Start time</dt>
+  <dd><%= @course.start_time %></dd>
+
+  <dt>End time</dt>
+  <dd><%= @course.end_time %></dd>
+
+  <dt>Teacher</dt>
+  <dd><%= @course.teacher %></dd>
+
+</dl>
