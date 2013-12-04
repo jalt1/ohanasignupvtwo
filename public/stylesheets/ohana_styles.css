@@ -1,0 +1,49 @@
+body {
+  font-family: Droid Sans;
+  color: #BB81B8;
+  height: 100%;
+  background: #CAECEB;
+  padding-top: 20px;
+}
+
+.innerbody{
+background: white;
+}
+
+.course{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: solid #CAECEB;
+}
+
+.pink {color: #d577ac;
+}
+
+.topdescription{
+font-size: large;
+padding: 30px;
+border-top: solid #CAECEB;
+
+}
+
+.form1 {
+padding-left:30px;
+
+}
+
+.description{
+  padding-right: 20px
+}
+
+label {color: #BB81B8 ;
+}
+
+.list_photo {
+width: 400px;
+padding: 5px;
+}
+
+.btn_orange{
+  background:#ffb985 ;
+  color: #d577ac;
+}
