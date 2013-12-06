@@ -29,9 +29,10 @@ class CoursesController < ApplicationController
     end
 
     8.times do
-    @slot = Slot.new
-    @slot.course_id = @course.id
-    @slot.save
+      @slot = Slot.new
+      @slot.course_id = @course.id
+      @slot.available = true
+      @slot.save
     end
   end
 

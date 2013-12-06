@@ -33,8 +33,8 @@ class UsersController < ApplicationController
       render 'new'
     end
 
-    @slots = Slot.all
-    @slots.each do |slot|
+    course = Course.find_by(:id => params[:course_id])
+    course.slots.each do |slot|
       if slot.available?
       slot.user_id = @user.id
       slot.available = false

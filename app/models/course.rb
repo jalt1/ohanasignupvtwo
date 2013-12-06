@@ -1,5 +1,8 @@
 class Course < ActiveRecord::Base
   belongs_to :category
+
+  has_many :slots
+
   has_many :users, :through => :slots
 
   validates :start_date, :presence => true

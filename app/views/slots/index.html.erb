@@ -20,8 +20,12 @@
   <tbody>
     <% @slots.each do |slot| %>
       <tr>
-        <td><%= slot.users.full_name %></td>
-        <td><%= slot.courses.category.name %></td>
+        <td>
+          <% if slot.user.present? %>
+            <%= slot.user.full_name %>
+          <% end %>
+        </td>
+        <td><%= slot.course.category.name %></td>
         <td><%= slot.paid? %></td>
         <td><%= slot.available? %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, slot_url(slot), class: 'btn btn-primary' %></td>
