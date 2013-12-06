@@ -32,6 +32,17 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+
+    # @slots = Slot.all
+    # @slots.each do |slot|
+    #   if slot.available?
+    #   slot.user_id = @user.id
+    #   slot.available = false
+    #   slot.save
+    #   break
+    #   end
+    # end
+
   end
 
   def edit

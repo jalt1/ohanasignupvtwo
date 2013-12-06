@@ -27,6 +27,12 @@ class CoursesController < ApplicationController
     else
       render 'new'
     end
+
+    8.times do
+    @slot = Slot.new
+    @slot.course_id = @course.id
+    @slot.save
+    end
   end
 
   def edit
