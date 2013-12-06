@@ -10,4 +10,7 @@ class Course < ActiveRecord::Base
     return "#{category.name}: #{start_date.strftime("%b %e, %Y")} - #{end_date.strftime("%b %e, %Y")}"
   end
 
+  def course_date_time
+    return "#{start_date.strftime("%b %e, %Y")} - #{end_date.strftime("%b %e, %Y")} #{start_time.strftime("%l:%M%p")} - #{end_time.strftime("%l:%M%p")}"
+  end
 end

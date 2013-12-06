@@ -34,23 +34,28 @@
     <h1>Classes & Groups</h1>
   </div>
 
+<% @categories.each do |category| %>
   <div class="course">
     <div class="row">
       <div>
-      <img class="col-md-5" class="list_photo" src="http://ohanaparents.com/wp-content/uploads/2013/01/9-Ohana-Childbirth-Class-6-300x210.jpg">
+      <img class="col-md-5" class="list_photo" src="<%= category.image %>">
       </div>
     <div class="description">
-    <h2>Childbirth Class and ParentPrep Class</h2>
-    <p>Ohana childbirth classes are designed to cover the information most important to expecting parents as they prepare for their upcoming birth and the beginning of parenthood. The curriculum is based on our team&rsquo;s combined 25+ years of experience working with pregnant women and their partners, the most cutting-edge research available about childbirth, and contributions from leading health care providers in Chicago.</p>
+    <h2><%= category.name.capitalize %></h2>
+    <p><%= category.description %></p>
     </div>
     <div>
-      <h3 class="pink">Next Scheduled Class</h3>
-      <p>Childbirth & ParentPrep 6-week session &ndash; January 7-February 11, 2014, Tuesdays 7:00pm-9:00pm</p>
+      <h3 class="pink">Available Dates</h3>
+      <p><%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :course_date_time)%>
+<% end %>
+
+       <!--  Childbirth & ParentPrep 6-week session &ndash; January 7-February 11, 2014, Tuesdays 7:00pm-9:00pm</p>
     </div>
       <button type="button" class="btn_orange btn-lg">Enroll Now</button>
     <div>
     </div>
   </div>
+
 
 <div></div>
 
@@ -141,3 +146,4 @@
 </div>
 
 </div>
+ -->

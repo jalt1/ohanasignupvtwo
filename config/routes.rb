@@ -1,5 +1,5 @@
 Ohanasignupvtwo::Application.routes.draw do
-  root "courses#index"
+  root "categories#index"
   # Routes for the Category resource:
   # CREATE
   get '/categories/new', controller: 'categories', action: 'new', as: 'new_category'
