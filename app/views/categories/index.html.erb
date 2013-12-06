@@ -14,15 +14,14 @@
     <h2><%= category.name.capitalize %></h2>
     <p><%= category.description %></p>
     </div>
+    <%= form_tag(new_user_url, :method => 'get') do %>
     <div>
       <h3 class="pink">Available Dates</h3>
-      <%#= form_tag(new_user_url) do %>
       <p><%= select_tag :course_id, options_from_collection_for_select(category.courses, :id, :course_date_time)%>
     </div>
     <div>
-      <button type="button" class="btn_orange btn-lg">Enroll Now</button>
-      <%#= submit_tag "Enroll Now", class: 'btn_orange btn-lg' %>
+      <%= button_tag "Enroll Now", class: 'btn_orange btn-lg' %>
     </div>
-  <%# end %>
   <% end %>
+<% end %>
 

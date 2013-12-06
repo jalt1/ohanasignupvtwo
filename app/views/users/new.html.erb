@@ -6,7 +6,11 @@
   <div class="form-group">
     <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :full_course_title), class: 'form-control' %>
+      <% if params[:course_id].present? %>
+        ####
+      <% else %>
+        <%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :full_course_title), class: 'form-control' %>
+      <% end %>
     </div>
   </div>
 
