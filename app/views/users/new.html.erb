@@ -2,6 +2,15 @@
   <h1>Sign Up (new user)</h1>
 </div>
 
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag(users_url, method: 'post', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>

@@ -2,6 +2,15 @@
   <h1>Editing User #<%= @user.id %></h1>
 </div>
 
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag(user_url(@user), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :first_name, nil, class: 'col-md-2 control-label' %>

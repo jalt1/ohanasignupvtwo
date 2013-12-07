@@ -9,6 +9,7 @@ class SlotsController < ApplicationController
   end
 
   def new
+    @slot = Slot.new
   end
 
   def create

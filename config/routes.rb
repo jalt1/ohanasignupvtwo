@@ -1,4 +1,5 @@
 Ohanasignupvtwo::Application.routes.draw do
+  devise_for :admins
   root "categories#index"
   # Routes for the Category resource:
   # CREATE

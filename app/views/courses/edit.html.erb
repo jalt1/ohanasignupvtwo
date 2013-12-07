@@ -2,6 +2,15 @@
   <h1>Editing Course #<%= @course.id %></h1>
 </div>
 
+<% if @course.errors.any? %>
+  <% @course.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag(course_url(@course), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :start_date, nil, class: 'col-md-2 control-label' %>
