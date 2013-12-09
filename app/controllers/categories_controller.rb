@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
     @category.name = params[:name]
     @category.description = params[:description]
+    @category.image = params[:image]
 
     if @category.save
       redirect_to categories_url, notice: "Category created successfully."
@@ -32,6 +33,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(id: params[:id])
     @category.name = params[:name]
     @category.description = params[:description]
+    @category.image = params[:image]
 
     if @category.save
       redirect_to categories_url, notice: "Category updated successfully."

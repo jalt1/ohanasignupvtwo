@@ -1,41 +1,43 @@
-<div class="innerbody">
+<div class="container">
 
-  <div class="jumbotron innerbody">
-    <h1>Classes & Groups</h1>
-    <div>
-      <br>
-    </div>
-    <% if admin_signed_in?%>
-    <p><%= link_to 'Add a New Category', new_category_url, class: 'btn btn-primary' %></p>
-    <% end %>
-  </div>
+  <div class="innerbody">
 
-<% @categories.each do |category| %>
-  <div class="course">
-    <div class="row">
+    <div class="jumbotron innerbody">
+      <h1>Classes & Groups</h1>
       <div>
-      <img class="col-md-5" class="list_photo" src="<%#= category.image %>http://ohanaparents.com/wp-content/uploads/2013/01/9-Ohana-Childbirth-Class-6-300x210.jpg">
+        <br>
       </div>
-    <div class="description">
-    <h2><%= category.name.capitalize %></h2>
-    <p><%= category.description %></p>
-    </div>
-    <%= form_tag(new_user_url, :method => 'get') do %>
-    <div>
-      <h3 class="pink">Available Dates</h3>
-      <p><%= select_tag :course_id, options_from_collection_for_select(category.courses, :id, :course_date_time)%>
+      <% if admin_signed_in?%>
+      <p><%= link_to 'Add a New Category', new_category_url, class: 'btn btn-primary' %></p>
+      <% end %>
     </div>
 
-    <div>
-      <%= button_tag "Enroll Now", class: 'btn_orange btn-lg' %>
+    <% @categories.each do |category| %>
+      <div class="course">
+        <div class="row">
+          <div>
+          <img class="col-md-5" class="list_photo" src="<%= category.image %>">
+          </div>
+        <div class="description">
+        <h2><%= category.name.capitalize %></h2>
+        <p><%= category.description %></p>
+        </div>
+        <%= form_tag(new_user_url, :method => 'get') do %>
+        <div>
+          <h3 class="pink">Available Dates</h3>
+          <p><%= select_tag :course_id, options_from_collection_for_select(category.courses, :id, :course_date_time)%>
+        </div>
 
-  <% end %>
+        <div>
+          <%= button_tag "Enroll Now", class: 'btn_orange btn-lg' %>
 
-    <% if admin_signed_in? %>
-          <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, category_url(category), class: 'btn btn-primary' %></td>
-          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_category_url(category), class: 'btn btn-warning' %></td>
-          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" }, class: 'btn btn-danger' %></td>
-    <% end %>
+      <% end %>
+
+      <% if admin_signed_in? %>
+            <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, category_url(category), class: 'btn btn-primary' %></td>
+            <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_category_url(category), class: 'btn btn-warning' %></td>
+            <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" }, class: 'btn btn-danger' %></td>
+      <% end %>
     </div>
 <% end %>
-
+</div>
