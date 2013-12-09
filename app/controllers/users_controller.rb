@@ -66,11 +66,49 @@ class UsersController < ApplicationController
     @user.baby_gender = params[:baby_gender]
     @user.password_digest = params[:password_digest]
 
+
+
+
+
+    if params[:course_id] != @user.slot.course_id
+      @user.slot.available = true
+      @user.slot.user_id = nil
+
+      c = Course.find(params[:course_id])
+      c.slots.each do |slot|
+        if slot.available?
+          slot.user_id = @user.id
+          slot.available = false
+          slot.save
+          break
+        end
+      end
+    end
+
     if @user.save
       redirect_to users_url, notice: "User updated successfully."
     else
       render 'edit'
     end
+
+
+    # current_slot = @user.slots
+    # current_slot.each do |slot|
+    #   slot.available = true
+    #   slot.save
+    #  end
+
+    # course = Course.find_by(:id => params[:course_id])
+    # course.slots.each do |slot|
+    #   if slot.available?
+    #   slot.user_id = @user.id
+    #   slot.available = false
+    #   slot.save
+    #   break
+    #   end
+    #   end
+
+    #@user.course =
   end
 
   def destroy

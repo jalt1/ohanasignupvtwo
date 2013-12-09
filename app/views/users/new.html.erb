@@ -18,7 +18,8 @@
       <%# if params[:course_id].present? %>
         <%#= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title), Course.find_by(params[:course_id]), class: 'form-control' %>
       <%# else %>
-        <%= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title), class: 'form-control' %>
+        <%= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title, params[:course_id]), class: 'form-control' %>
+
       <%# end %>
     </div>
   </div>

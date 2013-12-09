@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :slots
+  has_one :slot
 
   has_many :courses, :through => :slots
 
