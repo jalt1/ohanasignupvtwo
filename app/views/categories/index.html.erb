@@ -2,6 +2,12 @@
 
   <div class="jumbotron innerbody">
     <h1>Classes & Groups</h1>
+    <div>
+      <br>
+    </div>
+    <% if admin_signed_in?%>
+    <p><%= link_to 'Add a New Category', new_category_url, class: 'btn btn-primary' %></p>
+    <% end %>
   </div>
 
 <% @categories.each do |category| %>
@@ -19,9 +25,17 @@
       <h3 class="pink">Available Dates</h3>
       <p><%= select_tag :course_id, options_from_collection_for_select(category.courses, :id, :course_date_time)%>
     </div>
+
     <div>
       <%= button_tag "Enroll Now", class: 'btn_orange btn-lg' %>
-    </div>
+
   <% end %>
+
+    <% if admin_signed_in? %>
+          <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, category_url(category), class: 'btn btn-primary' %></td>
+          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_category_url(category), class: 'btn btn-warning' %></td>
+          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" }, class: 'btn btn-danger' %></td>
+    <% end %>
+    </div>
 <% end %>
 

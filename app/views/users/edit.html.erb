@@ -13,6 +13,16 @@
 
 <%= form_tag(user_url(@user), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
+    <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%# if params[:course_id].present? %>
+        <%#= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title, Course.find_by(params[:course_id]), class: 'form-control') %>
+      <%# else %>
+        <%= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title), class: 'form-control' %>
+      <%# end %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= label_tag :first_name, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= text_field_tag :first_name, @user.first_name, class: 'form-control' %>

@@ -15,21 +15,21 @@
   <div class="form-group">
     <%= label_tag :start_date, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :start_date, @course.start_date, class: 'form-control' %>
+      <%= text_field_tag :start_date, @course.start_date.strftime("%b %e, %Y"), class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :end_date, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :end_date, @course.end_date, class: 'form-control' %>
+      <%= text_field_tag :end_date, @course.end_date.strftime("%b %e, %Y"), class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :category_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= number_field_tag :category_id, @course.category_id, class: 'form-control' %>
+      <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name), class: 'form-control' %>
     </div>
   </div>
 
@@ -50,14 +50,14 @@
   <div class="form-group">
     <%= label_tag :start_time, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :start_time, @course.start_time, class: 'form-control' %>
+      <%= text_field_tag :start_time, @course.start_time.strftime("%l:%M%p"), class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :end_time, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :end_time, @course.end_time, class: 'form-control' %>
+      <%= text_field_tag :end_time, @course.end_time.strftime("%l:%M%p"), class: 'form-control' %>
     </div>
   </div>
 

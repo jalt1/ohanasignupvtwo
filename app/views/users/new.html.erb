@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Sign Up (new user)</h1>
+  <h1>Sign Up</h1>
 </div>
 
 <% if @user.errors.any? %>
@@ -15,11 +15,11 @@
   <div class="form-group">
     <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <% if params[:course_id].present? %>
-        ####
-      <% else %>
-        <%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :full_course_title), class: 'form-control' %>
-      <% end %>
+      <%# if params[:course_id].present? %>
+        <%#= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title), Course.find_by(params[:course_id]), class: 'form-control' %>
+      <%# else %>
+        <%= select_tag :course_id, options_from_collection_for_select(Course.all.order(:start_date), :id, :full_course_title), class: 'form-control' %>
+      <%# end %>
     </div>
   </div>
 
@@ -117,7 +117,7 @@
 
   <div class="form-group">
     <div class="col-md-offset-2 col-md-6">
-      <%= submit_tag "Create User", class: 'btn btn-primary' %>
+      <%= submit_tag "Sign Up!", class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>

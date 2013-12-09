@@ -15,6 +15,8 @@
       <th>Start time</th>
       <th>End time</th>
       <th>Teacher</th>
+      <th>Available Slots</th>
+      <th>Booked Slots</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,16 +24,18 @@
   </thead>
 
   <tbody>
-    <% @courses.each do |course| %>
+    <% @courses.order(:start_date).each do |course| %>
       <tr>
-        <td><%= course.start_date %></td>
-        <td><%= course.end_date %></td>
+        <td><%= course.start_date.strftime("%b %e, %Y") %></td>
+        <td><%= course.end_date.strftime("%b %e, %Y") %></td>
         <td><%= course.category.name %></td>
         <td><%= course.cost %></td>
         <td><%= course.place %></td>
-        <td><%= course.start_time %></td>
-        <td><%= course.end_time %></td>
+        <td><%= course.start_time.strftime("%l:%M%p") %></td>
+        <td><%= course.end_time.strftime("%l:%M%p") %></td>
         <td><%= course.teacher %></td>
+        <td><%= course.slots.where(:available => true).count %></td>
+        <td><%= course.slots.where(:available => false).count %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, course_url(course), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_course_url(course), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, course_url(course), method: 'delete', data: { confirm: "Do you really want to delete this course?" }, class: 'btn btn-danger' %></td>

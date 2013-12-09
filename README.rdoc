@@ -1,3 +1,8 @@
+To sign as as admin:
+
+email: admin@ohanaparents.com
+password: birthday
+
 == README
 
 This README would normally document whatever steps are necessary to get the

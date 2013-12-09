@@ -9,6 +9,7 @@
     <tr>
       <th>First name</th>
       <th>Last name</th>
+      <th>Courses</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Street address</th>
@@ -19,7 +20,6 @@
       <th>Birth place</th>
       <th>Doc midwife</th>
       <th>Baby gender</th>
-      <th>Password digest</th>
       <th></th>
       <th></th>
       <th></th>
@@ -27,10 +27,13 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order(:last_name).each do |user| %>
       <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
+        <% user.courses.all.each do |course|%>
+        <td><%= course.full_course_title %></td>
+        <% end %>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
         <td><%= user.street_address %></td>
@@ -41,7 +44,6 @@
         <td><%= user.birth_place %></td>
         <td><%= user.doc_midwife %></td>
         <td><%= user.baby_gender %></td>
-        <td><%= user.password_digest %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, user_url(user), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_user_url(user), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" }, class: 'btn btn-danger' %></td>

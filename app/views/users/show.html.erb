@@ -39,7 +39,8 @@
   <dt>Baby gender</dt>
   <dd><%= @user.baby_gender %></dd>
 
-  <dt>Password digest</dt>
-  <dd><%= @user.password_digest %></dd>
-
+   <dt>Course</dt>
+   <% @user.courses.all.each do |course|%>
+   <dd><%= course.full_course_title %></dd>
+   <% end %>
 </dl>

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :slots
+
   has_many :courses, :through => :slots
 
   def full_name

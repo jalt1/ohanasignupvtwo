@@ -4,10 +4,10 @@
 
 <dl class="dl-horizontal">
   <dt>State date</dt>
-  <dd><%= @course.start_date %></dd>
+  <dd><%= @course.start_date.strftime("%b %e, %Y") %></dd>
 
   <dt>End date</dt>
-  <dd><%= @course.end_date %></dd>
+  <dd><%= @course.end_date.strftime("%b %e, %Y") %></dd>
 
   <dt>Category</dt>
   <dd><%= @course.category.name %></dd>
@@ -19,12 +19,20 @@
   <dd><%= @course.place %></dd>
 
   <dt>Start time</dt>
-  <dd><%= @course.start_time %></dd>
+  <dd><%= @course.start_time.strftime("%l:%M%p") %></dd>
 
   <dt>End time</dt>
-  <dd><%= @course.end_time %></dd>
+  <dd><%= @course.end_time.strftime("%l:%M%p") %></dd>
 
   <dt>Teacher</dt>
   <dd><%= @course.teacher %></dd>
+
+  <dt>Available Slots</dt>
+  <dd><%= @course.slots.where(:available => true).count %></dd>
+
+  <dt>Users Signed Up</dt>
+  <% @course.users.all.each do |user|%>
+  <dd><%= user.full_name %></dd>
+  <% end %>
 
 </dl>
