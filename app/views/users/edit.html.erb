@@ -109,13 +109,6 @@
   </div>
 
   <div class="form-group">
-    <%= label_tag :password_digest, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-      <%= text_field_tag :password_digest, @user.password_digest, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
     <div class="col-md-offset-2 col-md-6">
       <%= submit_tag "Update User", class: 'btn btn-primary' %>
     </div>

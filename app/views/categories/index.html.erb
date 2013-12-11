@@ -34,7 +34,6 @@
           <% end %>
 
           <% if admin_signed_in? %>
-            <span><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, category_url(category), class: 'btn btn-primary' %></span>
             <span><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_category_url(category), class: 'btn btn-warning' %></span>
             <span><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" }, class: 'btn btn-danger' %></span>
           <% end %>
